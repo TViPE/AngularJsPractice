@@ -1,0 +1,20 @@
+<!doctype >
+<head>
+	<title>AngularJS Practice</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl" ng-init="myCol01='lightblue'; myCol02='lightgreen'; quantity=1; cost= 5">
+		<p>First Name: <input type="text" ng-model="firstName" style="background-color:{{myCol01}}"></p><br>
+		<p>Last Name: <input type="text" ng-model="lastName" style="background-color:{{myCol02}}"></p><br>
+		<p>Full Name: {{firstName + " " +lastName}}</p>
+		<p>Total cost: {{quantity * cost}}</p>
+	</div>
+	<script>
+		var app = angular.module("myApp", []);
+		app.controller("myCtrl", function($scope){
+			$scope.firstName = "Joe";
+			$scope.lastName ="Mi";
+		})
+	</script>
+</body>
