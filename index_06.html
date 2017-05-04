@@ -1,0 +1,18 @@
+<head>
+	<title>AngularJS Practice</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myApp06" ng-controller="myCtrl">
+		<p>Message returned after making a request to the server:</p>
+		<span>{{myWelcome}}</span>
+	</div>
+	<script>
+	var app = angular.module('myApp06', []);
+		app.controller('myCtrl', function($scope, $http) {
+			$http.get("welcome.htm").then(function (response) {
+			  $scope.myWelcome = response.data;
+		});
+	});
+	</script>
+</body>
