@@ -1,0 +1,37 @@
+<head>
+	<title>AngularJS Practice</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myApp07" ng-controller="myCtr">
+		<button ng-click="myFunc()">ClickMe</button>
+		<p>{{count}}</p>
+		<hr>
+		<button ng-click="showHidenDiv()">Show/Hide Div</button>
+		<div ng-show="showMe">
+			<h1>Menu:</h1>
+			<p>Item 1</p>
+			<p>Item 2</p>
+			<p>Item 3</p>
+		</div>
+		<hr>
+		<h1 ng-mousemove="mouseOverMe($event)">Mouse Over Me</h1>
+		<p> Coordinate: {{x + ", " + y}}</p>
+	</div>
+	<script>
+	var app = angular.module("myApp07",[]).controller("myCtr", function($scope){
+		$scope.count = 0;
+		$scope.myFunc = function(){
+			$scope.count++;
+		}
+		$scope.showMe = false;
+		$scope.showHidenDiv = function(){
+			$scope.showMe = !$scope.showMe;
+		}
+		$scope.mouseOverMe = function(myEvent){
+			$scope.x= myEvent.clientX;
+			$scope.y= myEvent.clientY;
+		}
+	})
+	</script>
+</body>
