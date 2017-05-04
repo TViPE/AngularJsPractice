@@ -1,0 +1,16 @@
+<head>
+	<title>AngularJS Practice</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myApp05" ng-controller="myCtrl">
+		<p>This url of this page is</p>
+		<span>{{myUrl}}</span>
+	</div>
+	<script>
+	var app = angular.module("myApp05", []);
+	app.controller("myCtrl", function($scope, $location){
+		$scope.myUrl = $location.absUrl();
+	})
+	</script>
+</body>
